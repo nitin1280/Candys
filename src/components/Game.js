@@ -298,61 +298,62 @@ const Game = () => {
     currentColorArrangement,
   ]);
 
-  const burstConnectedCandies = (index) => {
-    const decidedColor = currentColorArrangement[index];
-    const connectedCandies = [index];
-    const isBlank = currentColorArrangement[index] === blank;
+ const burstConnectedCandies = (index) => {
+  const decidedColor = currentColorArrangement[index];
+  const connectedCandies = [index];
+  const isBlank = currentColorArrangement[index] === blank;
 
-    // Function to check for connected candies in the same row
-    const checkRow = (i) => {
-      return (
-        i >= 0 &&
-        i < width &&
-        currentColorArrangement[i] === decidedColor &&
-        !isBlank
-      );
-    };
+  // Function to check for connected candies in the same row
+  const checkRow = (i) => {
+    return (
+      i >= 0 &&
+      i < width &&
+      currentColorArrangement[i] === decidedColor &&
+      !isBlank
+    );
+  };
 
-    // Function to check for connected candies in the same column
-    const checkColumn = (i) => {
-      return (
-        i >= 0 &&
-        i < width * width &&
-        currentColorArrangement[i] === decidedColor &&
-        !isBlank
-      );
-    };
+  // Function to check for connected candies in the same column
+  const checkColumn = (i) => {
+    return (
+      i >= 0 &&
+      i < width * width &&
+      currentColorArrangement[i] === decidedColor &&
+      !isBlank
+    );
+  };
 
-    const checkAndBurst = (checkFunction, currentIndex) => {
-      if (checkFunction(currentIndex)) {
-        connectedCandies.push(currentIndex);
-      }
-    };
-    // Check for connected candies in the same row
-    for (let i = index - 1; i >= 0; i--) {
-      checkAndBurst(checkRow, i);
-    }
-    for (let i = index + 1; i < width; i++) {
-      checkAndBurst(checkRow, i);
-    }
-
-    // Check for connected candies in the same column
-    for (let i = index - width; i >= 0; i -= width) {
-      checkAndBurst(checkColumn, i);
-    }
-    for (let i = index + width; i < width * width; i += width) {
-      checkAndBurst(checkColumn, i);
-    }
-
-    // Burst candies if there are 3 or more connected candies
-    if (connectedCandies.length >= 3) {
-      connectedCandies.forEach((i) => {
-        currentColorArrangement[i] = blank;
-      });
-
-      setScoreDisplay((score) => score + connectedCandies.length);
+  const checkAndBurst = (checkFunction, currentIndex) => {
+    if (checkFunction(currentIndex)) {
+      connectedCandies.push(currentIndex);
     }
   };
+
+  // Check for connected candies in the same row
+  for (let i = index - 1; i >= 0; i--) {
+    checkAndBurst(checkRow, i);
+  }
+  for (let i = index + 1; i < width; i++) {
+    checkAndBurst(checkRow, i);
+  }
+
+  // Check for connected candies in the same column
+  for (let i = index - width; i >= 0; i -= width) {
+    checkAndBurst(checkColumn, i);
+  }
+  for (let i = index + width; i < width * width; i += width) {
+    checkAndBurst(checkColumn, i);
+  }
+
+  // Burst candies if there are more than 3 connected candies
+  if (connectedCandies.length >= 4) {
+    connectedCandies.forEach((i) => {
+      currentColorArrangement[i] = blank;
+    });
+
+    setScoreDisplay((score) => score + connectedCandies.length);
+  }
+};
 
   const handleCandyClick = (index) => {
     if (currentColorArrangement[index] !== blank) {
