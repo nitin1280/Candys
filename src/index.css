@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Passion+One:wght@700&display=swap");
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+.para{
+  color: #dee60a;
+  font-family: sans-serif;
+}
+.score-board {
+  background-color: #dee60a;
+  width: 100%;
+  font-size: 2em;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  border-radius: 10px;
+  margin: 10px;
+  margin-top: 50px;
+}
+
+/*  style for the game section */
+
+.game {
+  max-width: 450px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* Create 10 columns */
+  grid-template-rows: repeat(10, 1fr); /* Create 10 rows */
+  gap: 2px; /* Adjust the gap between grid items as needed */
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 8px;
+  /* box-shadow: 0px 3px 6px rgb(255, 255, 255); */
+}
+
+.game img {
+  width: 100%;
+  height: 100%;
+}
+
+.game img:hover {
+  box-shadow: 0px 0px 3px #000;
+  transform: scale(1);
+}
+
+/* Set variables for colors */
+:root {
+  --primary-color: black;
+  --secondary-color: yellow;
+  --body-font: "Roboto", sans-serif;
+}
+
+/* Style the body */
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--body-font);
+  background-color: var(--primary-color);
+}
+
+/* Style the header */
+.header {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* Style the logo */
+.logo img {
+  height: 30px;
+  border-radius: 50%;
+}
+
+/* Style the mute button */
+.icon {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+.icon img {
+  height: 20px;
+  margin-right: 1rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+/* Style the main content */
+.main-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 5rem 1rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.content {
+  max-width: 800px;
+  text-align: center;
+}
+
+/* Style the banner */
+.banner {
+  font-size: 8rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  padding: 2rem;
+  font-family: "Passion One", cursive;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px yellow;
+  animation-name: shadow-pulse;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shadow-pulse {
+  0% {
+    box-shadow: 0 0 10px yellow;
+  }
+  50% {
+    box-shadow: 0 0 20px yellow;
+  }
+  100% {
+    box-shadow: 0 0 10px yellow;
+  }
+}
+
+/* Style the motto */
+.motto {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--secondary-color);
+  text-shadow: 0 0 5px yellow;
+}
+
+/* Style the start game button */
+.start-game {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  margin: 10px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.start-game:hover {
+  transform: scale(1.05);
+}
+
+/* Style the candy crush image */
+.candy-crush-image {
+  width: 400px;
+  margin: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 4.5rem;
+}
+
+/* Style the footer */
+.footer {
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: black;
+  padding: 1rem;
+  margin: 100px;
+  margin-bottom: 2rem;
+}
+
+.about-body {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: black;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  .game {
+    width: 80%;
+  }
+  .score-board {
+    font-size: 1.1em;
+    padding: 5px;
+  }
+}
